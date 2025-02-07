@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine?</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to right, #ff758c, #ff7eb3);
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 70px;
+            width: 100%;
+            max-width: 150px;
+        }
+
+        button {
+            flex: 1;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .yes {
+            background-color: #ff4e50;
+            color: white;
+        }
+
+        .yes:hover {
+            background-color: #ff6b6b;
+        }
+
+        .no {
+            background-color: #333;
+            color: white;
+        }
+
+        video {
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Will you be my Valentine? 🥰</h2>
+        <div class="buttons">
+            <button class="yes" onclick="showEmbeddedVideo()">❤️ Yes</button>
+            <button class="no" onmouseover="evade(this)" ontouchstart="evade(this)">😢 No</button>
+        </div>
+
+        <!-- Hidden Video Player -->
+        <video id="videoPlayer" width="600" controls>
+            <source src="./source/Rick Roll (Different link + no ads).mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <script>
+        let moveRight = true;
+
+        function evade(button) {
+            if (moveRight) {
+                button.style.transform = 'translateX(100px)';
+            } else {
+                button.style.transform = 'translateX(0)';
+            }
+            moveRight = !moveRight;
+        }
+
+        function showEmbeddedVideo() {
+            const video = document.getElementById('videoPlayer');
+            video.style.display = 'block';
+            video.play();
+        }
+    </script>
+</body>
+</html>
